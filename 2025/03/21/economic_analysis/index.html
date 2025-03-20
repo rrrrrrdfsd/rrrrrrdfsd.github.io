@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>经济数据分析仪表板 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="经济数据分析仪表板数据来源数据来源：世界银行、国家统计局、FRED 背景说明本仪表板展示了中国和美国的经济数据，包括 GDP 增长率、消费与投资占 GDP 比重、青年失业率等关键指标。通过交互式图表，用户可以更直观地理解经济趋势及其背后的驱动因素。 中美实际 GDP 增长率对比（1978–2023）  中国消费与投资占 GDP 比重演变  青年失业率与 GDP 增长相关性（2020–2023）">
+<meta property="og:type" content="article">
+<meta property="og:title" content="经济数据分析仪表板">
+<meta property="og:url" content="http://example.com/2025/03/21/economic_analysis/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="经济数据分析仪表板数据来源数据来源：世界银行、国家统计局、FRED 背景说明本仪表板展示了中国和美国的经济数据，包括 GDP 增长率、消费与投资占 GDP 比重、青年失业率等关键指标。通过交互式图表，用户可以更直观地理解经济趋势及其背后的驱动因素。 中美实际 GDP 增长率对比（1978–2023）  中国消费与投资占 GDP 比重演变  青年失业率与 GDP 增长相关性（2020–2023）">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2025-03-20T16:00:00.000Z">
+<meta property="article:modified_time" content="2025-03-20T17:11:37.281Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="Python">
+<meta property="article:tag" content="Plotly">
+<meta property="article:tag" content="Streamlit">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css">
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-economic_analysis" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2025/03/21/economic_analysis/" class="article-date">
+  <time class="dt-published" datetime="2025-03-20T16:00:00.000Z" itemprop="datePublished">2025-03-21</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">数据分析</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      经济数据分析仪表板
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="经济数据分析仪表板"><a href="#经济数据分析仪表板" class="headerlink" title="经济数据分析仪表板"></a>经济数据分析仪表板</h2><h3 id="数据来源"><a href="#数据来源" class="headerlink" title="数据来源"></a>数据来源</h3><p>数据来源：世界银行、国家统计局、FRED</p>
+<h3 id="背景说明"><a href="#背景说明" class="headerlink" title="背景说明"></a>背景说明</h3><p>本仪表板展示了中国和美国的经济数据，包括 GDP 增长率、消费与投资占 GDP 比重、青年失业率等关键指标。通过交互式图表，用户可以更直观地理解经济趋势及其背后的驱动因素。</p>
+<h3 id="中美实际-GDP-增长率对比（1978–2023）"><a href="#中美实际-GDP-增长率对比（1978–2023）" class="headerlink" title="中美实际 GDP 增长率对比（1978–2023）"></a>中美实际 GDP 增长率对比（1978–2023）</h3><iframe src="/gdp_growth_comparison.html" width="100%" height="600px" frameborder="0"></iframe>
+
+<h3 id="中国消费与投资占-GDP-比重演变"><a href="#中国消费与投资占-GDP-比重演变" class="headerlink" title="中国消费与投资占 GDP 比重演变"></a>中国消费与投资占 GDP 比重演变</h3><iframe src="/consumption_investment.html" width="100%" height="600px" frameborder="0"></iframe>
+
+<h3 id="青年失业率与-GDP-增长相关性（2020–2023）"><a href="#青年失业率与-GDP-增长相关性（2020–2023）" class="headerlink" title="青年失业率与 GDP 增长相关性（2020–2023）"></a>青年失业率与 GDP 增长相关性（2020–2023）</h3><iframe src="/unemployment_gdp.html" width="100%" height="600px" frameborder="0"></iframe>
+
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><p>以下是生成上述图表的 Python 代码：</p>
+<pre><code class="language-python">import pandas as pd
+import plotly.express as px
+import plotly.graph_objects as go
+from plotly.subplots import make_subplots
+import numpy as np
+import streamlit as st
+
+# 设置 Streamlit 页面布局
+st.set_page_config(page_title=&quot;经济数据分析仪表板&quot;, layout=&quot;wide&quot;)
+
+file_path = r&quot;C:\Users\79845\Desktop\大二下作业\economic_data.xlsx&quot;
+# 数据预处理
+df = pd.read_excel(file_path)
+# 确保列名正确
+df.rename(columns=&#123;&#39;Year&#39;: &#39;Year&#39;, &#39;RGDP_CN&#39;: &#39;中国实际GDP_RMB（2015年为基期）&#39;,
+                  &#39;POP_CN&#39;: &#39;总人口&#39;, &#39;CONS_CN&#39;: &#39;最终消费支出&#39;,
+                  &#39;GFCF_CN&#39;: &#39;资本形成总额&#39;, &#39;FAI_CN&#39;: &#39;中国固定资产投资&#39;,
+                  &#39;RGDP_US&#39;: &#39;美国实际GDP_RMB（以2015为基期）&#39;,
+                  &#39;PCE_US&#39;: &#39;美国个人消费支出PCE&#39;, &#39;UNEMP_YTH_CN&#39;: &#39;中国青年失业率&#39;&#125;, inplace=True)
+
+# 确保数据按年份排序
+df[&#39;Year&#39;] = pd.to_numeric(df[&#39;Year&#39;], errors=&#39;coerce&#39;)
+df = df.sort_values(by=&#39;Year&#39;)
+
+# 计算中美实际GDP增长率
+df[&#39;GDP_Growth_CN&#39;] = df[&#39;中国实际GDP_RMB（2015年为基期）&#39;].pct_change() * 100
+df[&#39;GDP_Growth_US&#39;] = df[&#39;美国实际GDP_RMB（以2015为基期）&#39;].pct_change() * 100
+
+# 设置页面标题
+st.title(&quot;经济数据分析仪表板&quot;)
+st.markdown(&quot;**数据来源**：世界银行、国家统计局、FRED&quot;)
+
+# 添加副标题和背景解释
+st.markdown(&quot;&quot;&quot;
+### 背景说明
+本仪表板展示了中国和美国的经济数据，包括GDP增长率、消费与投资占GDP比重、青年失业率等关键指标。
+通过交互式图表，用户可以更直观地理解经济趋势及其背后的驱动因素。
+&quot;&quot;&quot;)
+
+# 双轴折线图
+fig1 = make_subplots(specs=[[&#123;&quot;secondary_y&quot;: True&#125;]])
+
+# 设置颜色
+colors = [&#39;#8B0000&#39;, &#39;#0000FF&#39;]  # 中国红棕色，美国蓝色
+fig1.add_trace(go.Scatter(x=df[&#39;Year&#39;], y=df[&#39;GDP_Growth_CN&#39;], name=&quot;中国GDP增长率&quot;, mode=&#39;lines+markers&#39;, line=dict(color=colors[0]), marker=dict(size=8, color=colors[0])), secondary_y=False)
+fig1.add_trace(go.Scatter(x=df[&#39;Year&#39;], y=df[&#39;GDP_Growth_US&#39;], name=&quot;美国GDP增长率&quot;, mode=&#39;lines+markers&#39;, line=dict(color=colors[1]), marker=dict(size=8, color=colors[1])), secondary_y=True)
+
+fig1.update_layout(
+    title=dict(
+        text=&quot;中美实际GDP增长率对比（1978–2023）&lt;br&gt;&lt;span style=&#39;font-size:16px&#39;&gt;中国和美国实际GDP增长率的变化趋势，以及关键历史事件对经济增长的影响&lt;/span&gt;&quot;,
+        font=dict(size=22, family=&#39;KaiTi&#39;)
+    ),
+    xaxis_title=dict(text=&quot;年份&quot;, font=dict(size=18, family=&#39;KaiTi&#39;)),
+    yaxis_title=dict(text=&quot;增长率 (%)&quot;, font=dict(size=18, family=&#39;KaiTi&#39;)),
+    legend_title=dict(text=&quot;国家&quot;, font=dict(size=18, family=&#39;KaiTi&#39;)),
+    hovermode=&quot;x unified&quot;,
+    font=dict(size=16, family=&#39;KaiTi&#39;)
+)
+
+# 设置y轴范围
+fig1.update_yaxes(range=[-10, 80], secondary_y=False)  # 中国GDP增长率的y轴范围
+fig1.update_yaxes(range=[-10, 80], secondary_y=True)    # 美国GDP增长率的y轴范围
+
+# 添加关键事件注释
+fig1.add_annotation(
+    x=1978,
+    y=df.loc[df[&#39;Year&#39;] == 1978, &#39;GDP_Growth_CN&#39;].values[0] if not pd.isna(df.loc[df[&#39;Year&#39;] == 1978, &#39;GDP_Growth_CN&#39;].values[0]) else 0,
+    text=&quot;1978年改革开放&quot;,
+    showarrow=True,
+    arrowhead=1,
+    font=dict(size=18, family=&#39;KaiTi&#39;),
+    xshift=20,
+    yshift=40
+)
+
+fig1.add_annotation(
+    x=1998,
+    y=df.loc[df[&#39;Year&#39;] == 1998, &#39;GDP_Growth_CN&#39;].values[0] if not pd.isna(df.loc[df[&#39;Year&#39;] == 1998, &#39;GDP_Growth_CN&#39;].values[0]) else 0,
+    text=&quot;1998年亚洲金融危机&quot;,
+    showarrow=True,
+    arrowhead=1,
+    font=dict(size=18, family=&#39;KaiTi&#39;),
+    xshift=20,
+    yshift=30
+)
+
+fig1.add_annotation(
+    x=2008,
+    y=df.loc[df[&#39;Year&#39;] == 2008, &#39;GDP_Growth_CN&#39;].values[0] if not pd.isna(df.loc[df[&#39;Year&#39;] == 2008, &#39;GDP_Growth_CN&#39;].values[0]) else 0,
+    text=&quot;2008年全球金融危机&quot;,
+    showarrow=True,
+    arrowhead=1,
+    font=dict(size=18, family=&#39;KaiTi&#39;),
+    xshift=20,
+    yshift=40
+)
+
+fig1.add_annotation(
+    x=2020,
+    y=df.loc[df[&#39;Year&#39;] == 2020, &#39;GDP_Growth_CN&#39;].values[0] if not pd.isna(df.loc[df[&#39;Year&#39;] == 2020, &#39;GDP_Growth_CN&#39;].values[0]) else 0,
+    text=&quot;2020年新冠疫情&quot;,
+    showarrow=True,
+    arrowhead=1,
+    font=dict(size=18, family=&#39;KaiTi&#39;),
+    xshift=20,
+    yshift=40
+)
+
+# 添加2001年中国加入WTO的注释
+fig1.add_annotation(
+    x=2001,
+    y=df.loc[df[&#39;Year&#39;] == 2001, &#39;GDP_Growth_CN&#39;].values[0] if not pd.isna(df.loc[df[&#39;Year&#39;] == 2001, &#39;GDP_Growth_CN&#39;].values[0]) else 0,
+    text=&quot;2001年中国加入WTO&quot;,
+    showarrow=True,
+    arrowhead=1,
+    font=dict(size=18, family=&#39;KaiTi&#39;),
+    xshift=20,
+    yshift=10
+)
+
+# 添加分界线
+fig1.add_shape(type=&quot;line&quot;, x0=1978, y0=-10, x1=1978, y1=70, line=dict(color=&quot;gray&quot;, dash=&quot;dot&quot;, width=2))
+fig1.add_shape(type=&quot;line&quot;, x0=1998, y0=-10, x1=1998, y1=70, line=dict(color=&quot;gray&quot;, dash=&quot;dot&quot;, width=2))
+fig1.add_shape(type=&quot;line&quot;, x0=2001, y0=-10, x1=2001, y1=70, line=dict(color=&quot;gray&quot;, dash=&quot;dot&quot;, width=2))
+fig1.add_shape(type=&quot;line&quot;, x0=2008, y0=-10, x1=2008, y1=70, line=dict(color=&quot;gray&quot;, dash=&quot;dot&quot;, width=2))
+fig1.add_shape(type=&quot;line&quot;, x0=2020, y0=-10, x1=2020, y1=70, line=dict(color=&quot;gray&quot;, dash=&quot;dot&quot;, width=2))
+
+# 计算消费率和投资率
+df[&#39;Consumption_Rate&#39;] = df[&#39;最终消费支出&#39;] / df[&#39;中国实际GDP_RMB（2015年为基期）&#39;] * 100
+df[&#39;Investment_Rate&#39;] = df[&#39;资本形成总额&#39;] / df[&#39;中国实际GDP_RMB（2015年为基期）&#39;] * 100
+
+# 堆叠面积图
+
+fig2 = px.area(df, x=&#39;Year&#39;, y=[&#39;Consumption_Rate&#39;, &#39;Investment_Rate&#39;], 
+              labels=&#123;&quot;value&quot;: &quot;占比 (%)&quot;, &quot;Year&quot;: &quot;年份&quot;, &quot;Consumption_Rate&quot;: &quot;消费率 (%)&quot;, &quot;Investment_Rate&quot;: &quot;投资率 (%)&quot;&#125;,
+              title=&quot;中国消费与投资占GDP比重演变&quot;)
+
+# 设置浅色系颜色
+fig2.update_traces(fillcolor=&#39;#9DC7DD&#39;, line_color=&#39;#9DC7DD&#39;, selector=&#123;&#39;name&#39;: &#39;Consumption_Rate&#39;&#125;)
+fig2.update_traces(fillcolor=&#39;#9ED178&#39;, line_color=&#39;#9ED178&#39;, selector=&#123;&#39;name&#39;: &#39;Investment_Rate&#39;&#125;)
+
+fig2.update_layout(
+    title=dict(
+        text=&quot;中国消费与投资占GDP比重演变&lt;br&gt;&lt;span style=&#39;font-size:16px&#39;&gt;中国消费与投资占GDP比重的变化趋势，反映经济结构的变化&lt;/span&gt;&quot;,
+        font=dict(size=22, family=&#39;KaiTi&#39;)
+    ),
+    xaxis_title=dict(text=&quot;年份&quot;, font=dict(size=18, family=&#39;KaiTi&#39;)),
+    yaxis_title=dict(text=&quot;占比 (%)&quot;, font=dict(size=18, family=&#39;KaiTi&#39;)),
+    legend_title=dict(text=&quot;指标&quot;, font=dict(size=18, family=&#39;KaiTi&#39;)),
+    hovermode=&quot;x unified&quot;,
+    font=dict(size=16, family=&#39;KaiTi&#39;)
+)
+# 设置图例项的名称为中文
+fig2.data[0].name = &#39;消费占GDP比重 (%)&#39;
+fig2.data[1].name = &#39;投资占GDP比重 (%)&#39;
+# 添加投资驱动阶段注释（修改为在坐标轴下方显示）
+fig2.add_annotation(
+    x=2005,
+    y=-10,  # 将注释放在y轴下方
+    text=&quot;2000年后基础设施建设高峰期&quot;,
+    showarrow=False,  # 不显示箭头
+    font=dict(size=18, family=&#39;KaiTi&#39;),
+    xshift=0,
+    yshift=-20,  # 向下偏移，确保注释在坐标轴下方
+    xanchor=&quot;center&quot;,  # 水平居中对齐
+    yanchor=&quot;top&quot;  # 垂直顶部对齐
+)
+
+fig2.add_annotation(
+    x=2015,
+    y=-10,  # 将注释放在y轴下方
+    text=&quot;房地产和基建黄金十年&quot;,
+    showarrow=False,  # 不显示箭头
+    font=dict(size=18, family=&#39;KaiTi&#39;),
+    xshift=0,
+    yshift=-20,  # 向下偏移，确保注释在坐标轴下方
+    xanchor=&quot;center&quot;,  # 水平居中对齐
+    yanchor=&quot;top&quot;  # 垂直顶部对齐
+)
+
+# 添加分界线
+fig2.add_shape(type=&quot;line&quot;, x0=2000, y0=-10, x1=2000, y1=100, line=dict(color=&quot;gray&quot;, dash=&quot;dot&quot;, width=2))
+fig2.add_shape(type=&quot;line&quot;, x0=2010, y0=-10, x1=2010, y1=100, line=dict(color=&quot;gray&quot;, dash=&quot;dot&quot;, width=2))
+
+# 青年失业率与GDP增长散点图（2020–2023）
+
+df_subset = df[df[&#39;Year&#39;] &gt;= 2020]
+fig3 = px.scatter(df_subset, x=&#39;GDP_Growth_CN&#39;, y=&#39;中国青年失业率&#39;, trendline=&quot;ols&quot;,
+                 title=&quot;青年失业率与GDP增长相关性（2020–2023）&quot;)
+
+# 设置颜色
+fig3.update_traces(marker=dict(color=&#39;#0000FF&#39;, size=10), line=dict(color=&#39;#000000&#39;))
+
+fig3.update_layout(
+    title=dict(
+        text=&quot;青年失业率与GDP增长相关性（2020–2023）&lt;br&gt;&lt;span style=&#39;font-size:16px&#39;&gt;展示2020-2023年中国青年失业率与GDP增长率的相关性，分析疫情对就业的影响&lt;/span&gt;&quot;,
+        font=dict(size=22, family=&#39;KaiTi&#39;)
+    ),
+    xaxis_title=dict(text=&quot;GDP增长率 (%)&quot;, font=dict(size=18, family=&#39;KaiTi&#39;)),
+    yaxis_title=dict(text=&quot;青年失业率 (%)&quot;, font=dict(size=18, family=&#39;KaiTi&#39;)),
+    hovermode=&quot;x unified&quot;,
+    font=dict(size=16, family=&#39;KaiTi&#39;)
+)
+# 添加年份标签
+for i, row in df_subset.iterrows():
+    fig3.add_annotation(
+        x=row[&#39;GDP_Growth_CN&#39;],
+        y=row[&#39;中国青年失业率&#39;],
+        text=str(row[&#39;Year&#39;]),
+        showarrow=False,
+        font=dict(size=14, family=&#39;KaiTi&#39;, color=&#39;red&#39;),
+        xshift=10,
+        yshift=10
+    )
+
+# 添加回归结果说明
+fig3.add_annotation(
+    x=5,
+    y=20,
+    text=&quot;回归结果说明：&lt;br&gt;疫情期间，经济增长可能主要由特定行业（如医疗、科技）驱动，而这些行业对青年就业的吸纳能力有限。同时，传统行业（如服务业）受疫情影响较大，导致青年失业率上升。&lt;br&gt;疫情后恢复经济增长初期，企业可能更倾向于提高现有员工的效率，而非立即招聘新员工。因此，失业率可能在经济复苏初期仍然较高。&quot;,
+    showarrow=False,
+    font=dict(size=14, family=&#39;KaiTi&#39;, color=&#39;black&#39;),
+    bordercolor=&#39;black&#39;,
+    borderwidth=1,
+    borderpad=4,
+    bgcolor=&#39;white&#39;
+)
+
+# 设置页面标题
+st.title(&quot;经济数据分析仪表板&quot;)
+
+# 显示第一个图表
+st.subheader(&quot;中美实际GDP增长率对比（1978–2023）&quot;)
+st.plotly_chart(fig1)
+
+# 显示第二个图表
+st.subheader(&quot;中国消费与投资占GDP比重演变&quot;)
+st.plotly_chart(fig2)
+
+# 显示第三个图表
+st.subheader(&quot;青年失业率与GDP增长相关性（2020–2023）&quot;)
+st.plotly_chart(fig3)
+
+# 保存图表
+fig1.write_html(&quot;gdp_growth_comparison.html&quot;)
+fig2.write_html(&quot;consumption_investment.html&quot;)
+fig3.write_html(&quot;unemployment_gdp.html&quot;)
+</code></pre>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2025/03/21/economic_analysis/" data-id="cm8hm1pca00002kdqhz1c2r51" data-title="经济数据分析仪表板" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Plotly/" rel="tag">Plotly</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Streamlit/" rel="tag">Streamlit</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2025/03/20/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Hello World</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">数据分析</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Plotly/" rel="tag">Plotly</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Streamlit/" rel="tag">Streamlit</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Plotly/" style="font-size: 10px;">Plotly</a> <a href="/tags/Python/" style="font-size: 10px;">Python</a> <a href="/tags/Streamlit/" style="font-size: 10px;">Streamlit</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/03/">March 2025</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2025/03/21/economic_analysis/">经济数据分析仪表板</a>
+          </li>
+        
+          <li>
+            <a href="/2025/03/20/hello-world/">Hello World</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2025 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

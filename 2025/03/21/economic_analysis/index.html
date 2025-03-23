@@ -14,7 +14,7 @@
 <meta property="og:description" content="经济数据分析仪表板数据来源数据来源：世界银行、国家统计局、FRED 背景说明本仪表板展示了中国和美国的经济数据，包括 GDP 增长率、消费与投资占 GDP 比重、青年失业率等关键指标。通过交互式图表，用户可以更直观地理解经济趋势及其背后的驱动因素。 中美实际 GDP 增长率对比（1978–2023）  中国消费与投资占 GDP 比重演变  青年失业率与 GDP 增长相关性（2020–2023）">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2025-03-20T16:00:00.000Z">
-<meta property="article:modified_time" content="2025-03-20T17:11:37.281Z">
+<meta property="article:modified_time" content="2025-03-22T04:59:28.094Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="Python">
 <meta property="article:tag" content="Plotly">
@@ -119,7 +119,7 @@ import numpy as np
 import streamlit as st
 
 # 设置 Streamlit 页面布局
-st.set_page_config(page_title=&quot;经济数据分析仪表板&quot;, layout=&quot;wide&quot;)
+st.set_page_config(page_title=&quot;经济数据分析仪表板&quot;, layout=&quot;wide&quot;, initial_sidebar_state=&quot;expanded&quot;)
 
 file_path = r&quot;C:\Users\79845\Desktop\大二下作业\economic_data.xlsx&quot;
 # 数据预处理
@@ -138,7 +138,6 @@ df = df.sort_values(by=&#39;Year&#39;)
 # 计算中美实际GDP增长率
 df[&#39;GDP_Growth_CN&#39;] = df[&#39;中国实际GDP_RMB（2015年为基期）&#39;].pct_change() * 100
 df[&#39;GDP_Growth_US&#39;] = df[&#39;美国实际GDP_RMB（以2015为基期）&#39;].pct_change() * 100
-
 # 设置页面标题
 st.title(&quot;经济数据分析仪表板&quot;)
 st.markdown(&quot;**数据来源**：世界银行、国家统计局、FRED&quot;)
@@ -243,7 +242,6 @@ df[&#39;Consumption_Rate&#39;] = df[&#39;最终消费支出&#39;] / df[&#39;中�
 df[&#39;Investment_Rate&#39;] = df[&#39;资本形成总额&#39;] / df[&#39;中国实际GDP_RMB（2015年为基期）&#39;] * 100
 
 # 堆叠面积图
-
 fig2 = px.area(df, x=&#39;Year&#39;, y=[&#39;Consumption_Rate&#39;, &#39;Investment_Rate&#39;], 
               labels=&#123;&quot;value&quot;: &quot;占比 (%)&quot;, &quot;Year&quot;: &quot;年份&quot;, &quot;Consumption_Rate&quot;: &quot;消费率 (%)&quot;, &quot;Investment_Rate&quot;: &quot;投资率 (%)&quot;&#125;,
               title=&quot;中国消费与投资占GDP比重演变&quot;)
@@ -296,7 +294,6 @@ fig2.add_shape(type=&quot;line&quot;, x0=2000, y0=-10, x1=2000, y1=100, line=dic
 fig2.add_shape(type=&quot;line&quot;, x0=2010, y0=-10, x1=2010, y1=100, line=dict(color=&quot;gray&quot;, dash=&quot;dot&quot;, width=2))
 
 # 青年失业率与GDP增长散点图（2020–2023）
-
 df_subset = df[df[&#39;Year&#39;] &gt;= 2020]
 fig3 = px.scatter(df_subset, x=&#39;GDP_Growth_CN&#39;, y=&#39;中国青年失业率&#39;, trendline=&quot;ols&quot;,
                  title=&quot;青年失业率与GDP增长相关性（2020–2023）&quot;)
@@ -363,7 +360,7 @@ fig3.write_html(&quot;unemployment_gdp.html&quot;)
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2025/03/21/economic_analysis/" data-id="cm8hm1pca00002kdqhz1c2r51" data-title="经济数据分析仪表板" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2025/03/21/economic_analysis/" data-id="cm8k95bsn0000cgdq7n4ubodd" data-title="经济数据分析仪表板" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       

@@ -6,15 +6,15 @@
   
   <title>经济数据分析仪表板 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="经济数据分析仪表板数据来源数据来源：世界银行、国家统计局、FRED 背景说明本仪表板展示了中国和美国的经济数据，包括 GDP 增长率、消费与投资占 GDP 比重、青年失业率等关键指标。通过交互式图表，用户可以更直观地理解经济趋势及其背后的驱动因素。 中美实际 GDP 增长率对比（1978–2023）  中国消费与投资占 GDP 比重演变  青年失业率与 GDP 增长相关性（2020–2023）">
+  <meta name="description" content="经济数据分析仪表板数据来源数据来源：世界银行、国家统计局、FRED 背景说明本仪表板展示了中国和美国的经济数据，包括 GDP 增长率、消费与投资占 GDP 比重、青年失业率等关键指标。通过交互式图表，用户可以更直观地理解经济趋势及其背后的驱动因素。     代码以下是生成上述图表的 Python 代码： import pandas as pdimport osimport plotly.expre">
 <meta property="og:type" content="article">
 <meta property="og:title" content="经济数据分析仪表板">
 <meta property="og:url" content="http://example.com/2025/03/21/economic_analysis/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="经济数据分析仪表板数据来源数据来源：世界银行、国家统计局、FRED 背景说明本仪表板展示了中国和美国的经济数据，包括 GDP 增长率、消费与投资占 GDP 比重、青年失业率等关键指标。通过交互式图表，用户可以更直观地理解经济趋势及其背后的驱动因素。 中美实际 GDP 增长率对比（1978–2023）  中国消费与投资占 GDP 比重演变  青年失业率与 GDP 增长相关性（2020–2023）">
+<meta property="og:description" content="经济数据分析仪表板数据来源数据来源：世界银行、国家统计局、FRED 背景说明本仪表板展示了中国和美国的经济数据，包括 GDP 增长率、消费与投资占 GDP 比重、青年失业率等关键指标。通过交互式图表，用户可以更直观地理解经济趋势及其背后的驱动因素。     代码以下是生成上述图表的 Python 代码： import pandas as pdimport osimport plotly.expre">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2025-03-20T16:00:00.000Z">
-<meta property="article:modified_time" content="2025-03-22T04:59:28.094Z">
+<meta property="article:modified_time" content="2025-03-23T16:13:00.564Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="Python">
 <meta property="article:tag" content="Plotly">
@@ -104,258 +104,40 @@
       
         <h2 id="经济数据分析仪表板"><a href="#经济数据分析仪表板" class="headerlink" title="经济数据分析仪表板"></a>经济数据分析仪表板</h2><h3 id="数据来源"><a href="#数据来源" class="headerlink" title="数据来源"></a>数据来源</h3><p>数据来源：世界银行、国家统计局、FRED</p>
 <h3 id="背景说明"><a href="#背景说明" class="headerlink" title="背景说明"></a>背景说明</h3><p>本仪表板展示了中国和美国的经济数据，包括 GDP 增长率、消费与投资占 GDP 比重、青年失业率等关键指标。通过交互式图表，用户可以更直观地理解经济趋势及其背后的驱动因素。</p>
-<h3 id="中美实际-GDP-增长率对比（1978–2023）"><a href="#中美实际-GDP-增长率对比（1978–2023）" class="headerlink" title="中美实际 GDP 增长率对比（1978–2023）"></a>中美实际 GDP 增长率对比（1978–2023）</h3><iframe src="/gdp_growth_comparison.html" width="100%" height="600px" frameborder="0"></iframe>
-
-<h3 id="中国消费与投资占-GDP-比重演变"><a href="#中国消费与投资占-GDP-比重演变" class="headerlink" title="中国消费与投资占 GDP 比重演变"></a>中国消费与投资占 GDP 比重演变</h3><iframe src="/consumption_investment.html" width="100%" height="600px" frameborder="0"></iframe>
-
-<h3 id="青年失业率与-GDP-增长相关性（2020–2023）"><a href="#青年失业率与-GDP-增长相关性（2020–2023）" class="headerlink" title="青年失业率与 GDP 增长相关性（2020–2023）"></a>青年失业率与 GDP 增长相关性（2020–2023）</h3><iframe src="/unemployment_gdp.html" width="100%" height="600px" frameborder="0"></iframe>
+<iframe src="/public/gdp_growth_comparison.html" width="100%" height="600"></iframe>
+<iframe src="/public/consumption_investment.html" width="100%" height="600"></iframe>
+<iframe src="/public/unemployment_gdp.html" width="100%" height="600"></iframe>
 
 <h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><p>以下是生成上述图表的 Python 代码：</p>
-<pre><code class="language-python">import pandas as pd
-import plotly.express as px
-import plotly.graph_objects as go
-from plotly.subplots import make_subplots
-import numpy as np
-import streamlit as st
-
-# 设置 Streamlit 页面布局
-st.set_page_config(page_title=&quot;经济数据分析仪表板&quot;, layout=&quot;wide&quot;, initial_sidebar_state=&quot;expanded&quot;)
-
-file_path = r&quot;C:\Users\79845\Desktop\大二下作业\economic_data.xlsx&quot;
-# 数据预处理
-df = pd.read_excel(file_path)
-# 确保列名正确
-df.rename(columns=&#123;&#39;Year&#39;: &#39;Year&#39;, &#39;RGDP_CN&#39;: &#39;中国实际GDP_RMB（2015年为基期）&#39;,
-                  &#39;POP_CN&#39;: &#39;总人口&#39;, &#39;CONS_CN&#39;: &#39;最终消费支出&#39;,
-                  &#39;GFCF_CN&#39;: &#39;资本形成总额&#39;, &#39;FAI_CN&#39;: &#39;中国固定资产投资&#39;,
-                  &#39;RGDP_US&#39;: &#39;美国实际GDP_RMB（以2015为基期）&#39;,
-                  &#39;PCE_US&#39;: &#39;美国个人消费支出PCE&#39;, &#39;UNEMP_YTH_CN&#39;: &#39;中国青年失业率&#39;&#125;, inplace=True)
-
-# 确保数据按年份排序
-df[&#39;Year&#39;] = pd.to_numeric(df[&#39;Year&#39;], errors=&#39;coerce&#39;)
-df = df.sort_values(by=&#39;Year&#39;)
-
-# 计算中美实际GDP增长率
-df[&#39;GDP_Growth_CN&#39;] = df[&#39;中国实际GDP_RMB（2015年为基期）&#39;].pct_change() * 100
-df[&#39;GDP_Growth_US&#39;] = df[&#39;美国实际GDP_RMB（以2015为基期）&#39;].pct_change() * 100
-# 设置页面标题
-st.title(&quot;经济数据分析仪表板&quot;)
-st.markdown(&quot;**数据来源**：世界银行、国家统计局、FRED&quot;)
-
-# 添加副标题和背景解释
-st.markdown(&quot;&quot;&quot;
-### 背景说明
-本仪表板展示了中国和美国的经济数据，包括GDP增长率、消费与投资占GDP比重、青年失业率等关键指标。
-通过交互式图表，用户可以更直观地理解经济趋势及其背后的驱动因素。
-&quot;&quot;&quot;)
-
-# 双轴折线图
-fig1 = make_subplots(specs=[[&#123;&quot;secondary_y&quot;: True&#125;]])
-
-# 设置颜色
-colors = [&#39;#8B0000&#39;, &#39;#0000FF&#39;]  # 中国红棕色，美国蓝色
-fig1.add_trace(go.Scatter(x=df[&#39;Year&#39;], y=df[&#39;GDP_Growth_CN&#39;], name=&quot;中国GDP增长率&quot;, mode=&#39;lines+markers&#39;, line=dict(color=colors[0]), marker=dict(size=8, color=colors[0])), secondary_y=False)
-fig1.add_trace(go.Scatter(x=df[&#39;Year&#39;], y=df[&#39;GDP_Growth_US&#39;], name=&quot;美国GDP增长率&quot;, mode=&#39;lines+markers&#39;, line=dict(color=colors[1]), marker=dict(size=8, color=colors[1])), secondary_y=True)
-
-fig1.update_layout(
-    title=dict(
-        text=&quot;中美实际GDP增长率对比（1978–2023）&lt;br&gt;&lt;span style=&#39;font-size:16px&#39;&gt;中国和美国实际GDP增长率的变化趋势，以及关键历史事件对经济增长的影响&lt;/span&gt;&quot;,
-        font=dict(size=22, family=&#39;KaiTi&#39;)
-    ),
-    xaxis_title=dict(text=&quot;年份&quot;, font=dict(size=18, family=&#39;KaiTi&#39;)),
-    yaxis_title=dict(text=&quot;增长率 (%)&quot;, font=dict(size=18, family=&#39;KaiTi&#39;)),
-    legend_title=dict(text=&quot;国家&quot;, font=dict(size=18, family=&#39;KaiTi&#39;)),
-    hovermode=&quot;x unified&quot;,
-    font=dict(size=16, family=&#39;KaiTi&#39;)
-)
-
-# 设置y轴范围
-fig1.update_yaxes(range=[-10, 80], secondary_y=False)  # 中国GDP增长率的y轴范围
-fig1.update_yaxes(range=[-10, 80], secondary_y=True)    # 美国GDP增长率的y轴范围
-
-# 添加关键事件注释
-fig1.add_annotation(
-    x=1978,
-    y=df.loc[df[&#39;Year&#39;] == 1978, &#39;GDP_Growth_CN&#39;].values[0] if not pd.isna(df.loc[df[&#39;Year&#39;] == 1978, &#39;GDP_Growth_CN&#39;].values[0]) else 0,
-    text=&quot;1978年改革开放&quot;,
-    showarrow=True,
-    arrowhead=1,
-    font=dict(size=18, family=&#39;KaiTi&#39;),
-    xshift=20,
-    yshift=40
-)
-
-fig1.add_annotation(
-    x=1998,
-    y=df.loc[df[&#39;Year&#39;] == 1998, &#39;GDP_Growth_CN&#39;].values[0] if not pd.isna(df.loc[df[&#39;Year&#39;] == 1998, &#39;GDP_Growth_CN&#39;].values[0]) else 0,
-    text=&quot;1998年亚洲金融危机&quot;,
-    showarrow=True,
-    arrowhead=1,
-    font=dict(size=18, family=&#39;KaiTi&#39;),
-    xshift=20,
-    yshift=30
-)
-
-fig1.add_annotation(
-    x=2008,
-    y=df.loc[df[&#39;Year&#39;] == 2008, &#39;GDP_Growth_CN&#39;].values[0] if not pd.isna(df.loc[df[&#39;Year&#39;] == 2008, &#39;GDP_Growth_CN&#39;].values[0]) else 0,
-    text=&quot;2008年全球金融危机&quot;,
-    showarrow=True,
-    arrowhead=1,
-    font=dict(size=18, family=&#39;KaiTi&#39;),
-    xshift=20,
-    yshift=40
-)
-
-fig1.add_annotation(
-    x=2020,
-    y=df.loc[df[&#39;Year&#39;] == 2020, &#39;GDP_Growth_CN&#39;].values[0] if not pd.isna(df.loc[df[&#39;Year&#39;] == 2020, &#39;GDP_Growth_CN&#39;].values[0]) else 0,
-    text=&quot;2020年新冠疫情&quot;,
-    showarrow=True,
-    arrowhead=1,
-    font=dict(size=18, family=&#39;KaiTi&#39;),
-    xshift=20,
-    yshift=40
-)
-
-# 添加2001年中国加入WTO的注释
-fig1.add_annotation(
-    x=2001,
-    y=df.loc[df[&#39;Year&#39;] == 2001, &#39;GDP_Growth_CN&#39;].values[0] if not pd.isna(df.loc[df[&#39;Year&#39;] == 2001, &#39;GDP_Growth_CN&#39;].values[0]) else 0,
-    text=&quot;2001年中国加入WTO&quot;,
-    showarrow=True,
-    arrowhead=1,
-    font=dict(size=18, family=&#39;KaiTi&#39;),
-    xshift=20,
-    yshift=10
-)
-
-# 添加分界线
-fig1.add_shape(type=&quot;line&quot;, x0=1978, y0=-10, x1=1978, y1=70, line=dict(color=&quot;gray&quot;, dash=&quot;dot&quot;, width=2))
-fig1.add_shape(type=&quot;line&quot;, x0=1998, y0=-10, x1=1998, y1=70, line=dict(color=&quot;gray&quot;, dash=&quot;dot&quot;, width=2))
-fig1.add_shape(type=&quot;line&quot;, x0=2001, y0=-10, x1=2001, y1=70, line=dict(color=&quot;gray&quot;, dash=&quot;dot&quot;, width=2))
-fig1.add_shape(type=&quot;line&quot;, x0=2008, y0=-10, x1=2008, y1=70, line=dict(color=&quot;gray&quot;, dash=&quot;dot&quot;, width=2))
-fig1.add_shape(type=&quot;line&quot;, x0=2020, y0=-10, x1=2020, y1=70, line=dict(color=&quot;gray&quot;, dash=&quot;dot&quot;, width=2))
-
-# 计算消费率和投资率
-df[&#39;Consumption_Rate&#39;] = df[&#39;最终消费支出&#39;] / df[&#39;中国实际GDP_RMB（2015年为基期）&#39;] * 100
-df[&#39;Investment_Rate&#39;] = df[&#39;资本形成总额&#39;] / df[&#39;中国实际GDP_RMB（2015年为基期）&#39;] * 100
-
-# 堆叠面积图
-fig2 = px.area(df, x=&#39;Year&#39;, y=[&#39;Consumption_Rate&#39;, &#39;Investment_Rate&#39;], 
-              labels=&#123;&quot;value&quot;: &quot;占比 (%)&quot;, &quot;Year&quot;: &quot;年份&quot;, &quot;Consumption_Rate&quot;: &quot;消费率 (%)&quot;, &quot;Investment_Rate&quot;: &quot;投资率 (%)&quot;&#125;,
-              title=&quot;中国消费与投资占GDP比重演变&quot;)
-
-# 设置浅色系颜色
-fig2.update_traces(fillcolor=&#39;#9DC7DD&#39;, line_color=&#39;#9DC7DD&#39;, selector=&#123;&#39;name&#39;: &#39;Consumption_Rate&#39;&#125;)
-fig2.update_traces(fillcolor=&#39;#9ED178&#39;, line_color=&#39;#9ED178&#39;, selector=&#123;&#39;name&#39;: &#39;Investment_Rate&#39;&#125;)
-
-fig2.update_layout(
-    title=dict(
-        text=&quot;中国消费与投资占GDP比重演变&lt;br&gt;&lt;span style=&#39;font-size:16px&#39;&gt;中国消费与投资占GDP比重的变化趋势，反映经济结构的变化&lt;/span&gt;&quot;,
-        font=dict(size=22, family=&#39;KaiTi&#39;)
-    ),
-    xaxis_title=dict(text=&quot;年份&quot;, font=dict(size=18, family=&#39;KaiTi&#39;)),
-    yaxis_title=dict(text=&quot;占比 (%)&quot;, font=dict(size=18, family=&#39;KaiTi&#39;)),
-    legend_title=dict(text=&quot;指标&quot;, font=dict(size=18, family=&#39;KaiTi&#39;)),
-    hovermode=&quot;x unified&quot;,
-    font=dict(size=16, family=&#39;KaiTi&#39;)
-)
-# 设置图例项的名称为中文
-fig2.data[0].name = &#39;消费占GDP比重 (%)&#39;
-fig2.data[1].name = &#39;投资占GDP比重 (%)&#39;
-# 添加投资驱动阶段注释（修改为在坐标轴下方显示）
-fig2.add_annotation(
-    x=2005,
-    y=-10,  # 将注释放在y轴下方
-    text=&quot;2000年后基础设施建设高峰期&quot;,
-    showarrow=False,  # 不显示箭头
-    font=dict(size=18, family=&#39;KaiTi&#39;),
-    xshift=0,
-    yshift=-20,  # 向下偏移，确保注释在坐标轴下方
-    xanchor=&quot;center&quot;,  # 水平居中对齐
-    yanchor=&quot;top&quot;  # 垂直顶部对齐
-)
-
-fig2.add_annotation(
-    x=2015,
-    y=-10,  # 将注释放在y轴下方
-    text=&quot;房地产和基建黄金十年&quot;,
-    showarrow=False,  # 不显示箭头
-    font=dict(size=18, family=&#39;KaiTi&#39;),
-    xshift=0,
-    yshift=-20,  # 向下偏移，确保注释在坐标轴下方
-    xanchor=&quot;center&quot;,  # 水平居中对齐
-    yanchor=&quot;top&quot;  # 垂直顶部对齐
-)
-
-# 添加分界线
-fig2.add_shape(type=&quot;line&quot;, x0=2000, y0=-10, x1=2000, y1=100, line=dict(color=&quot;gray&quot;, dash=&quot;dot&quot;, width=2))
-fig2.add_shape(type=&quot;line&quot;, x0=2010, y0=-10, x1=2010, y1=100, line=dict(color=&quot;gray&quot;, dash=&quot;dot&quot;, width=2))
-
-# 青年失业率与GDP增长散点图（2020–2023）
-df_subset = df[df[&#39;Year&#39;] &gt;= 2020]
-fig3 = px.scatter(df_subset, x=&#39;GDP_Growth_CN&#39;, y=&#39;中国青年失业率&#39;, trendline=&quot;ols&quot;,
-                 title=&quot;青年失业率与GDP增长相关性（2020–2023）&quot;)
-
-# 设置颜色
-fig3.update_traces(marker=dict(color=&#39;#0000FF&#39;, size=10), line=dict(color=&#39;#000000&#39;))
-
-fig3.update_layout(
-    title=dict(
-        text=&quot;青年失业率与GDP增长相关性（2020–2023）&lt;br&gt;&lt;span style=&#39;font-size:16px&#39;&gt;展示2020-2023年中国青年失业率与GDP增长率的相关性，分析疫情对就业的影响&lt;/span&gt;&quot;,
-        font=dict(size=22, family=&#39;KaiTi&#39;)
-    ),
-    xaxis_title=dict(text=&quot;GDP增长率 (%)&quot;, font=dict(size=18, family=&#39;KaiTi&#39;)),
-    yaxis_title=dict(text=&quot;青年失业率 (%)&quot;, font=dict(size=18, family=&#39;KaiTi&#39;)),
-    hovermode=&quot;x unified&quot;,
-    font=dict(size=16, family=&#39;KaiTi&#39;)
-)
-# 添加年份标签
-for i, row in df_subset.iterrows():
-    fig3.add_annotation(
-        x=row[&#39;GDP_Growth_CN&#39;],
-        y=row[&#39;中国青年失业率&#39;],
-        text=str(row[&#39;Year&#39;]),
-        showarrow=False,
-        font=dict(size=14, family=&#39;KaiTi&#39;, color=&#39;red&#39;),
-        xshift=10,
-        yshift=10
-    )
-
-# 添加回归结果说明
-fig3.add_annotation(
-    x=5,
-    y=20,
-    text=&quot;回归结果说明：&lt;br&gt;疫情期间，经济增长可能主要由特定行业（如医疗、科技）驱动，而这些行业对青年就业的吸纳能力有限。同时，传统行业（如服务业）受疫情影响较大，导致青年失业率上升。&lt;br&gt;疫情后恢复经济增长初期，企业可能更倾向于提高现有员工的效率，而非立即招聘新员工。因此，失业率可能在经济复苏初期仍然较高。&quot;,
-    showarrow=False,
-    font=dict(size=14, family=&#39;KaiTi&#39;, color=&#39;black&#39;),
-    bordercolor=&#39;black&#39;,
-    borderwidth=1,
-    borderpad=4,
-    bgcolor=&#39;white&#39;
-)
-
-# 设置页面标题
-st.title(&quot;经济数据分析仪表板&quot;)
-
-# 显示第一个图表
-st.subheader(&quot;中美实际GDP增长率对比（1978–2023）&quot;)
-st.plotly_chart(fig1)
-
-# 显示第二个图表
-st.subheader(&quot;中国消费与投资占GDP比重演变&quot;)
-st.plotly_chart(fig2)
-
-# 显示第三个图表
-st.subheader(&quot;青年失业率与GDP增长相关性（2020–2023）&quot;)
-st.plotly_chart(fig3)
-
-# 保存图表
-fig1.write_html(&quot;gdp_growth_comparison.html&quot;)
-fig2.write_html(&quot;consumption_investment.html&quot;)
-fig3.write_html(&quot;unemployment_gdp.html&quot;)
-</code></pre>
+<p>import pandas as pd<br>import os<br>import plotly.express as px<br>import plotly.graph_objects as go<br>from plotly.subplots import make_subplots</p>
+<h1 id="指定保存路径"><a href="#指定保存路径" class="headerlink" title="指定保存路径"></a>指定保存路径</h1><p>save_dir &#x3D; r”C:\Users\79845\myblog\public”</p>
+<h1 id="确保保存路径存在"><a href="#确保保存路径存在" class="headerlink" title="确保保存路径存在"></a>确保保存路径存在</h1><p>if not os.path.exists(save_dir):<br>    os.makedirs(save_dir)</p>
+<h1 id="数据预处理"><a href="#数据预处理" class="headerlink" title="数据预处理"></a>数据预处理</h1><p>file_path &#x3D; r”C:\Users\79845\Desktop\大二下作业\economic_data.xlsx”<br>df &#x3D; pd.read_excel(file_path)<br>df.rename(columns&#x3D;{‘Year’: ‘年份’, ‘RGDP_CN’: ‘中国实际GDP_RMB（2015年为基期）’,<br>                  ‘POP_CN’: ‘总人口’, ‘CONS_CN’: ‘最终消费支出’,<br>                  ‘GFCF_CN’: ‘资本形成总额’, ‘FAI_CN’: ‘中国固定资产投资’,<br>                  ‘RGDP_US’: ‘美国实际GDP_RMB（以2015为基期）’,<br>                  ‘PCE_US’: ‘美国个人消费支出PCE’, ‘UNEMP_YTH_CN’: ‘中国青年失业率’}, inplace&#x3D;True)</p>
+<h1 id="确保数据按年份排序"><a href="#确保数据按年份排序" class="headerlink" title="确保数据按年份排序"></a>确保数据按年份排序</h1><p>df[‘年份’] &#x3D; pd.to_numeric(df[‘年份’], errors&#x3D;’coerce’)<br>df &#x3D; df.sort_values(by&#x3D;’年份’)</p>
+<h1 id="计算中美实际GDP增长率"><a href="#计算中美实际GDP增长率" class="headerlink" title="计算中美实际GDP增长率"></a>计算中美实际GDP增长率</h1><p>df[‘GDP_Growth_CN’] &#x3D; df[‘中国实际GDP_RMB（2015年为基期）’].pct_change() * 100<br>df[‘GDP_Growth_US’] &#x3D; df[‘美国实际GDP_RMB（以2015为基期）’].pct_change() * 100</p>
+<h1 id="双轴折线图"><a href="#双轴折线图" class="headerlink" title="双轴折线图"></a>双轴折线图</h1><p>fig1 &#x3D; make_subplots(specs&#x3D;[[{“secondary_y”: True}]])<br>colors &#x3D; [‘#8B0000’, ‘#0000FF’]  # 中国红棕色，美国蓝色<br>fig1.add_trace(go.Scatter(x&#x3D;df[‘年份’], y&#x3D;df[‘GDP_Growth_CN’], name&#x3D;”中国GDP增长率”, mode&#x3D;’lines+markers’, line&#x3D;dict(color&#x3D;colors[0]), marker&#x3D;dict(size&#x3D;8, color&#x3D;colors[0])), secondary_y&#x3D;False)<br>fig1.add_trace(go.Scatter(x&#x3D;df[‘年份’], y&#x3D;df[‘GDP_Growth_US’], name&#x3D;”美国GDP增长率”, mode&#x3D;’lines+markers’, line&#x3D;dict(color&#x3D;colors[1]), marker&#x3D;dict(size&#x3D;8, color&#x3D;colors[1])), secondary_y&#x3D;True)</p>
+<p>fig1.update_layout(<br>    title&#x3D;dict(<br>        text&#x3D;”中美实际GDP增长率对比（1978–2023）<br><span style='font-size:16px'>中国和美国实际GDP增长率的变化趋势，以及关键历史事件对经济增长的影响</span>“,<br>        font&#x3D;dict(size&#x3D;22, family&#x3D;’KaiTi’)<br>    ),<br>    xaxis_title&#x3D;dict(text&#x3D;”年份”, font&#x3D;dict(size&#x3D;18, family&#x3D;’KaiTi’)),<br>    yaxis_title&#x3D;dict(text&#x3D;”增长率 (%)”, font&#x3D;dict(size&#x3D;18, family&#x3D;’KaiTi’)),<br>    legend_title&#x3D;dict(text&#x3D;”国家”, font&#x3D;dict(size&#x3D;18, family&#x3D;’KaiTi’)),<br>    hovermode&#x3D;”x unified”,<br>    font&#x3D;dict(size&#x3D;16, family&#x3D;’KaiTi’)<br>)</p>
+<h1 id="设置y轴范围"><a href="#设置y轴范围" class="headerlink" title="设置y轴范围"></a>设置y轴范围</h1><p>fig1.update_yaxes(range&#x3D;[-10, 80], secondary_y&#x3D;False)  # 中国GDP增长率的y轴范围<br>fig1.update_yaxes(range&#x3D;[-10, 80], secondary_y&#x3D;True)    # 美国GDP增长率的y轴范围</p>
+<h1 id="添加关键事件注释"><a href="#添加关键事件注释" class="headerlink" title="添加关键事件注释"></a>添加关键事件注释</h1><p>fig1.add_annotation(<br>    x&#x3D;1978,<br>    y&#x3D;df.loc[df[‘年份’] &#x3D;&#x3D; 1978, ‘GDP_Growth_CN’].values[0] if not pd.isna(df.loc[df[‘年份’] &#x3D;&#x3D; 1978, ‘GDP_Growth_CN’].values[0]) else 0,<br>    text&#x3D;”1978年改革开放”,<br>    showarrow&#x3D;True,<br>    arrowhead&#x3D;1,<br>    font&#x3D;dict(size&#x3D;18, family&#x3D;’KaiTi’),<br>    xshift&#x3D;20,<br>    yshift&#x3D;40<br>)</p>
+<p>fig1.add_annotation(<br>    x&#x3D;1998,<br>    y&#x3D;df.loc[df[‘年份’] &#x3D;&#x3D; 1998, ‘GDP_Growth_CN’].values[0] if not pd.isna(df.loc[df[‘年份’] &#x3D;&#x3D; 1998, ‘GDP_Growth_CN’].values[0]) else 0,<br>    text&#x3D;”1998年亚洲金融危机”,<br>    showarrow&#x3D;True,<br>    arrowhead&#x3D;1,<br>    font&#x3D;dict(size&#x3D;18, family&#x3D;’KaiTi’),<br>    xshift&#x3D;20,<br>    yshift&#x3D;30<br>)</p>
+<p>fig1.add_annotation(<br>    x&#x3D;2008,<br>    y&#x3D;df.loc[df[‘年份’] &#x3D;&#x3D; 2008, ‘GDP_Growth_CN’].values[0] if not pd.isna(df.loc[df[‘年份’] &#x3D;&#x3D; 2008, ‘GDP_Growth_CN’].values[0]) else 0,<br>    text&#x3D;”2008年全球金融危机”,<br>    showarrow&#x3D;True,<br>    arrowhead&#x3D;1,<br>    font&#x3D;dict(size&#x3D;18, family&#x3D;’KaiTi’),<br>    xshift&#x3D;20,<br>    yshift&#x3D;40<br>)</p>
+<p>fig1.add_annotation(<br>    x&#x3D;2020,<br>    y&#x3D;df.loc[df[‘年份’] &#x3D;&#x3D; 2020, ‘GDP_Growth_CN’].values[0] if not pd.isna(df.loc[df[‘年份’] &#x3D;&#x3D; 2020, ‘GDP_Growth_CN’].values[0]) else 0,<br>    text&#x3D;”2020年新冠疫情”,<br>    showarrow&#x3D;True,<br>    arrowhead&#x3D;1,<br>    font&#x3D;dict(size&#x3D;18, family&#x3D;’KaiTi’),<br>    xshift&#x3D;20,<br>    yshift&#x3D;40<br>)</p>
+<h1 id="添加2001年中国加入WTO的注释"><a href="#添加2001年中国加入WTO的注释" class="headerlink" title="添加2001年中国加入WTO的注释"></a>添加2001年中国加入WTO的注释</h1><p>fig1.add_annotation(<br>    x&#x3D;2001,<br>    y&#x3D;df.loc[df[‘年份’] &#x3D;&#x3D; 2001, ‘GDP_Growth_CN’].values[0] if not pd.isna(df.loc[df[‘年份’] &#x3D;&#x3D; 2001, ‘GDP_Growth_CN’].values[0]) else 0,<br>    text&#x3D;”2001年中国加入WTO”,<br>    showarrow&#x3D;True,<br>    arrowhead&#x3D;1,<br>    font&#x3D;dict(size&#x3D;18, family&#x3D;’KaiTi’),<br>    xshift&#x3D;20,<br>    yshift&#x3D;10<br>)</p>
+<h1 id="添加分界线"><a href="#添加分界线" class="headerlink" title="添加分界线"></a>添加分界线</h1><p>fig1.add_shape(type&#x3D;”line”, x0&#x3D;1978, y0&#x3D;-10, x1&#x3D;1978, y1&#x3D;70, line&#x3D;dict(color&#x3D;”gray”, dash&#x3D;”dot”, width&#x3D;2))<br>fig1.add_shape(type&#x3D;”line”, x0&#x3D;1998, y0&#x3D;-10, x1&#x3D;1998, y1&#x3D;70, line&#x3D;dict(color&#x3D;”gray”, dash&#x3D;”dot”, width&#x3D;2))<br>fig1.add_shape(type&#x3D;”line”, x0&#x3D;2001, y0&#x3D;-10, x1&#x3D;2001, y1&#x3D;70, line&#x3D;dict(color&#x3D;”gray”, dash&#x3D;”dot”, width&#x3D;2))<br>fig1.add_shape(type&#x3D;”line”, x0&#x3D;2008, y0&#x3D;-10, x1&#x3D;2008, y1&#x3D;70, line&#x3D;dict(color&#x3D;”gray”, dash&#x3D;”dot”, width&#x3D;2))<br>fig1.add_shape(type&#x3D;”line”, x0&#x3D;2020, y0&#x3D;-10, x1&#x3D;2020, y1&#x3D;70, line&#x3D;dict(color&#x3D;”gray”, dash&#x3D;”dot”, width&#x3D;2))</p>
+<h1 id="计算消费率和投资率"><a href="#计算消费率和投资率" class="headerlink" title="计算消费率和投资率"></a>计算消费率和投资率</h1><p>df[‘Consumption_Rate’] &#x3D; df[‘最终消费支出’] &#x2F; df[‘中国实际GDP_RMB（2015年为基期）’] * 100<br>df[‘Investment_Rate’] &#x3D; df[‘资本形成总额’] &#x2F; df[‘中国实际GDP_RMB（2015年为基期）’] * 100</p>
+<h1 id="堆叠面积图"><a href="#堆叠面积图" class="headerlink" title="堆叠面积图"></a>堆叠面积图</h1><p>fig2 &#x3D; px.area(df, x&#x3D;’年份’, y&#x3D;[‘Consumption_Rate’, ‘Investment_Rate’],<br>              labels&#x3D;{“value”: “占比 (%)”, “年份”: “年份”, “Consumption_Rate”: “消费率 (%)”, “Investment_Rate”: “投资率 (%)”},<br>              title&#x3D;”中国消费与投资占GDP比重演变”)</p>
+<h1 id="设置浅色系颜色"><a href="#设置浅色系颜色" class="headerlink" title="设置浅色系颜色"></a>设置浅色系颜色</h1><p>fig2.update_traces(fillcolor&#x3D;’#9DC7DD’, line_color&#x3D;’#9DC7DD’, selector&#x3D;{‘name’: ‘Consumption_Rate’})<br>fig2.update_traces(fillcolor&#x3D;’#9ED178’, line_color&#x3D;’#9ED178’, selector&#x3D;{‘name’: ‘Investment_Rate’})</p>
+<p>fig2.update_layout(<br>    title&#x3D;dict(<br>        text&#x3D;”中国消费与投资占GDP比重演变<br><span style='font-size:16px'>中国消费与投资占GDP比重的变化趋势，反映经济结构的变化</span>“,<br>        font&#x3D;dict(size&#x3D;22, family&#x3D;’KaiTi’)<br>    ),<br>    xaxis_title&#x3D;dict(text&#x3D;”年份”, font&#x3D;dict(size&#x3D;18, family&#x3D;’KaiTi’)),<br>    yaxis_title&#x3D;dict(text&#x3D;”占比 (%)”, font&#x3D;dict(size&#x3D;18, family&#x3D;’KaiTi’)),<br>    legend_title&#x3D;dict(text&#x3D;”指标”, font&#x3D;dict(size&#x3D;18, family&#x3D;’KaiTi’)),<br>    hovermode&#x3D;”x unified”,<br>    font&#x3D;dict(size&#x3D;16, family&#x3D;’KaiTi’)<br>)</p>
+<h1 id="设置图例项的名称为中文"><a href="#设置图例项的名称为中文" class="headerlink" title="设置图例项的名称为中文"></a>设置图例项的名称为中文</h1><p>fig2.data[0].name &#x3D; ‘消费占GDP比重 (%)’<br>fig2.data[1].name &#x3D; ‘投资占GDP比重 (%)’</p>
+<h1 id="添加投资驱动阶段注释（修改为在坐标轴下方显示）"><a href="#添加投资驱动阶段注释（修改为在坐标轴下方显示）" class="headerlink" title="添加投资驱动阶段注释（修改为在坐标轴下方显示）"></a>添加投资驱动阶段注释（修改为在坐标轴下方显示）</h1><p>fig2.add_annotation(<br>    x&#x3D;2005,<br>    y&#x3D;-10,  # 将注释放在y轴下方<br>    text&#x3D;”2000年后基础设施建设高峰期”,<br>    showarrow&#x3D;False,  # 不显示箭头<br>    font&#x3D;dict(size&#x3D;18, family&#x3D;’KaiTi’),<br>    xshift&#x3D;0,<br>    yshift&#x3D;-20,  # 向下偏移，确保注释在坐标轴下方<br>    xanchor&#x3D;”center”,  # 水平居中对齐<br>    yanchor&#x3D;”top”  # 垂直顶部对齐<br>)</p>
+<p>fig2.add_annotation(<br>    x&#x3D;2015,<br>    y&#x3D;-10,  # 将注释放在y轴下方<br>    text&#x3D;”房地产和基建黄金十年”,<br>    showarrow&#x3D;False,  # 不显示箭头<br>    font&#x3D;dict(size&#x3D;18, family&#x3D;’KaiTi’),<br>    xshift&#x3D;0,<br>    yshift&#x3D;-20,  # 向下偏移，确保注释在坐标轴下方<br>    xanchor&#x3D;”center”,  # 水平居中对齐<br>    yanchor&#x3D;”top”  # 垂直顶部对齐<br>)</p>
+<h1 id="添加分界线-1"><a href="#添加分界线-1" class="headerlink" title="添加分界线"></a>添加分界线</h1><p>fig2.add_shape(type&#x3D;”line”, x0&#x3D;2000, y0&#x3D;-10, x1&#x3D;2000, y1&#x3D;100, line&#x3D;dict(color&#x3D;”gray”, dash&#x3D;”dot”, width&#x3D;2))<br>fig2.add_shape(type&#x3D;”line”, x0&#x3D;2010, y0&#x3D;-10, x1&#x3D;2010, y1&#x3D;100, line&#x3D;dict(color&#x3D;”gray”, dash&#x3D;”dot”, width&#x3D;2))</p>
+<h1 id="青年失业率与GDP增长散点图（2020–2023）"><a href="#青年失业率与GDP增长散点图（2020–2023）" class="headerlink" title="青年失业率与GDP增长散点图（2020–2023）"></a>青年失业率与GDP增长散点图（2020–2023）</h1><p>df_subset &#x3D; df[df[‘年份’] &gt;&#x3D; 2020]<br>fig3 &#x3D; px.scatter(df_subset, x&#x3D;’GDP_Growth_CN’, y&#x3D;’中国青年失业率’, trendline&#x3D;”ols”,<br>                 title&#x3D;”青年失业率与GDP增长相关性（2020–2023）”)</p>
+<h1 id="设置颜色"><a href="#设置颜色" class="headerlink" title="设置颜色"></a>设置颜色</h1><p>fig3.update_traces(marker&#x3D;dict(color&#x3D;’#0000FF’, size&#x3D;10), line&#x3D;dict(color&#x3D;’#000000’))</p>
+<p>fig3.update_layout(<br>    title&#x3D;dict(<br>        text&#x3D;”青年失业率与GDP增长相关性（2020–2023）<br><span style='font-size:16px'>展示2020-2023年中国青年失业率与GDP增长率的相关性，分析疫情对就业的影响</span>“,<br>        font&#x3D;dict(size&#x3D;22, family&#x3D;’KaiTi’)<br>    ),<br>    xaxis_title&#x3D;dict(text&#x3D;”GDP增长率 (%)”, font&#x3D;dict(size&#x3D;18, family&#x3D;’KaiTi’)),<br>    yaxis_title&#x3D;dict(text&#x3D;”青年失业率 (%)”, font&#x3D;dict(size&#x3D;18, family&#x3D;’KaiTi’)),<br>    hovermode&#x3D;”x unified”,<br>    font&#x3D;dict(size&#x3D;16, family&#x3D;’KaiTi’)<br>)</p>
+<h1 id="添加年份标签"><a href="#添加年份标签" class="headerlink" title="添加年份标签"></a>添加年份标签</h1><p>for i, row in df_subset.iterrows():<br>    fig3.add_annotation(<br>        x&#x3D;row[‘GDP_Growth_CN’],<br>        y&#x3D;row[‘中国青年失业率’],<br>        text&#x3D;str(row[‘年份’]),<br>        showarrow&#x3D;False,<br>        font&#x3D;dict(size&#x3D;14, family&#x3D;’KaiTi’, color&#x3D;’red’),<br>        xshift&#x3D;10,<br>        yshift&#x3D;10<br>    )</p>
+<h1 id="添加回归结果说明"><a href="#添加回归结果说明" class="headerlink" title="添加回归结果说明"></a>添加回归结果说明</h1><p>fig3.add_annotation(<br>    x&#x3D;5,<br>    y&#x3D;20,<br>    text&#x3D;”回归结果说明：<br>疫情期间，经济增长可能主要由特定行业（如医疗、科技）驱动，而这些行业对青年就业的吸纳能力有限。同时，传统行业（如服务业）受疫情影响较大，导致青年失业率上升。<br>疫情后恢复经济增长初期，企业可能更倾向于提高现有员工的效率，而非立即招聘新员工。因此，失业率可能在经济复苏初期仍然较高。”,<br>    showarrow&#x3D;False,<br>    font&#x3D;dict(size&#x3D;14, family&#x3D;’KaiTi’, color&#x3D;’black’),<br>    bordercolor&#x3D;’black’,<br>    borderwidth&#x3D;1,<br>    borderpad&#x3D;4,<br>    bgcolor&#x3D;’white’<br>)</p>
+<h1 id="保存图表为HTML文件"><a href="#保存图表为HTML文件" class="headerlink" title="保存图表为HTML文件"></a>保存图表为HTML文件</h1><p>fig1.write_html(“gdp_growth_comparison.html”)<br>fig2.write_html(“consumption_investment.html”)<br>fig3.write_html(“unemployment_gdp.html”)</p>
 
       
     </div>

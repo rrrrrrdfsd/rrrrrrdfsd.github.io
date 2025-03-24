@@ -105,8 +105,75 @@
 <h3 id="1-2-图表生成过程"><a href="#1-2-图表生成过程" class="headerlink" title="1.2 图表生成过程"></a>1.2 图表生成过程</h3><h3 id="1-数据预处理"><a href="#1-数据预处理" class="headerlink" title="1. 数据预处理"></a>1. 数据预处理</h3><ul>
 <li>从Excel文件<code>economic_data.xlsx</code>中读取数据。</li>
 <li>重命名列以使其更具描述性，例如将<code>Year</code>改为<code>年份</code>，<code>RGDP_CN</code>改为<code>中国实际GDP_RMB（2015年为基期）</code>等。</li>
-<li>确保年份列是数值类型，并按年份对数据进行排序。</li>
+<li>确保年份列是数值类型，并按年份对数据进行排序。<br>构建宏观变量的定义表格以描述各个变量，便于作图</li>
 </ul>
+<table>
+<thead>
+<tr>
+<th>Variable Abbreviation</th>
+<th>Full Name</th>
+<th>Unit</th>
+<th>Data Source</th>
+<th>Economic Significance</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>RGDP_CN</td>
+<td>中国实际GDP（2015年为基期）</td>
+<td>亿元</td>
+<td>世界银行</td>
+<td>衡量中国剔除价格因素后的经济总量，反映实际经济增长趋势</td>
+</tr>
+<tr>
+<td>POP_CN</td>
+<td>年末总人口</td>
+<td>万人</td>
+<td>国家统计局</td>
+<td>人口规模直接影响劳动力供给和消费市场潜力</td>
+</tr>
+<tr>
+<td>CONS_CN</td>
+<td>最终消费支出</td>
+<td>亿元</td>
+<td>国家统计局</td>
+<td>反映居民和政府消费需求，是经济增长的核心驱动力之一</td>
+</tr>
+<tr>
+<td>GFCF_CN</td>
+<td>资本形成总额</td>
+<td>亿元</td>
+<td>国家统计局</td>
+<td>衡量固定资产投资和存货变动，体现投资对经济增长的贡献</td>
+</tr>
+<tr>
+<td>FAI_CN</td>
+<td>全社会固定资产投资</td>
+<td>亿元</td>
+<td>国家统计局</td>
+<td>反映基础设施、房地产等领域的投资强度，是政策调控的重要指标</td>
+</tr>
+<tr>
+<td>RGDP_US</td>
+<td>美国实际GDP（2015年为基期）</td>
+<td>亿元</td>
+<td>世界银行</td>
+<td>美国经济规模的核心指标，用于国际比较和分析全球经济联动性</td>
+</tr>
+<tr>
+<td>PCE_US</td>
+<td>美国个人消费支出</td>
+<td>亿元</td>
+<td>FRED</td>
+<td>美国居民消费能力的直接体现，占GDP约70%，是经济周期的重要风向标</td>
+</tr>
+<tr>
+<td>UNEMP_YTH_CN</td>
+<td>中国青年失业率（2018–2023）</td>
+<td>%%</td>
+<td>国家统计局</td>
+<td>反映16-24岁人口就业压力，与产业结构转型和政策效果密切相关</td>
+</tr>
+</tbody></table>
 <h3 id="2-计算增长率"><a href="#2-计算增长率" class="headerlink" title="2. 计算增长率"></a>2. 计算增长率</h3><ul>
 <li>计算中国和美国的实际GDP增长率，通过取连续年份的GDP值的百分比变化。</li>
 </ul>
